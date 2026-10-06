@@ -1,0 +1,18 @@
+.mod-videotrackerultra .vtu-player {
+    max-width: 1100px;
+    margin-inline: auto;
+}
+
+.mod-videotrackerultra [data-region="status"][data-status="completed"],
+.mod-videotrackerultra [data-region="status"][data-status="valid"],
+.mod-videotrackerultra [data-region="rule-result"][data-result="ok"] {
+    font-weight: 700;
+}
+
+.mod-videotrackerultra [data-region="rule-result"][data-result="fail"] {
+    font-weight: 700;
+}
+
+.mod-videotrackerultra .vtu-rule-matrix td:nth-child(2) {
+    white-space: nowrap;
+}

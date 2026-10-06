@@ -1,0 +1,59 @@
+<div class="mod-videotrackerultra" data-region="videotrackerultra" data-config="{{configjson}}">
+    <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+        <div>
+            <h2>{{name}}</h2>
+            {{#hasintro}}<div class="mb-3">{{{intro}}}</div>{{/hasintro}}
+        </div>
+        {{#canviewreport}}
+            <a class="btn btn-secondary" href="{{{reporturl}}}">{{#str}}viewreport, videotrackerultra{{/str}}</a>
+        {{/canviewreport}}
+    </div>
+
+    <div class="alert alert-info">{{notice}}</div>
+
+    <div class="vtu-player mb-4" data-region="player">
+        {{{player.sourcehtml}}}
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-3"><div class="card h-100"><div class="card-body">
+            <div class="text-muted">{{#str}}yourstatus, videotrackerultra{{/str}}</div>
+            <strong data-region="status" data-status="{{status}}">{{statuslabel}}</strong>
+        </div></div></div>
+        <div class="col-md-3"><div class="card h-100"><div class="card-body">
+            <div class="text-muted">{{#str}}percentage, videotrackerultra{{/str}}</div>
+            <strong data-region="percent">{{percent}}%</strong>
+        </div></div></div>
+        <div class="col-md-3"><div class="card h-100"><div class="card-body">
+            <div class="text-muted">{{#str}}realtime, videotrackerultra{{/str}}</div>
+            <strong data-region="playbacktime">{{playbacktime}}</strong>
+        </div></div></div>
+        <div class="col-md-3"><div class="card h-100"><div class="card-body">
+            <div class="text-muted">{{#str}}sessions, videotrackerultra{{/str}}</div>
+            <strong data-region="sessions">{{sessions}}</strong>
+        </div></div></div>
+    </div>
+
+    <h3>{{#str}}yourrequirements, videotrackerultra{{/str}}</h3>
+    {{#hasrules}}
+    <div class="table-responsive">
+        <table class="table generaltable">
+            <thead><tr>
+                <th>{{#str}}rule, videotrackerultra{{/str}}</th>
+                <th>{{#str}}result, videotrackerultra{{/str}}</th>
+                <th>{{#str}}evidence, videotrackerultra{{/str}}</th>
+            </tr></thead>
+            <tbody>
+            {{#rules}}
+                <tr data-rule-key="{{key}}">
+                    <td>{{label}}</td>
+                    <td data-region="rule-result" data-result="{{result}}">{{resultlabel}}</td>
+                    <td data-region="rule-evidence">{{evidence}}</td>
+                </tr>
+            {{/rules}}
+            </tbody>
+        </table>
+    </div>
+    {{/hasrules}}
+    {{^hasrules}}<div class="alert alert-warning">{{#str}}norules, videotrackerultra{{/str}}</div>{{/hasrules}}
+</div>

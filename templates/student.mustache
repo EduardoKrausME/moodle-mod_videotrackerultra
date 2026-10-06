@@ -1,0 +1,42 @@
+<div class="mod-videotrackerultra">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+        <div>
+            <h2>{{name}}</h2>
+            <div class="text-muted">{{email}}</div>
+        </div>
+        <div class="d-flex gap-2">
+            {{#canreevaluate}}<a class="btn btn-secondary" href="{{{reevaluateurl}}}">{{#str}}reevaluate, videotrackerultra{{/str}}</a>{{/canreevaluate}}
+            <a class="btn btn-outline-secondary" href="{{{backurl}}}">{{#str}}back, videotrackerultra{{/str}}</a>
+        </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-3"><div class="card h-100"><div class="card-body"><span class="text-muted">{{#str}}status, videotrackerultra{{/str}}</span><br><strong>{{status}}</strong></div></div></div>
+        <div class="col-md-3"><div class="card h-100"><div class="card-body"><span class="text-muted">{{#str}}percentage, videotrackerultra{{/str}}</span><br><strong>{{percent}}%</strong></div></div></div>
+        <div class="col-md-3"><div class="card h-100"><div class="card-body"><span class="text-muted">{{#str}}realtime, videotrackerultra{{/str}}</span><br><strong>{{realtime}}</strong></div></div></div>
+        <div class="col-md-3"><div class="card h-100"><div class="card-body"><span class="text-muted">{{#str}}sessions, videotrackerultra{{/str}}</span><br><strong>{{sessions}}</strong></div></div></div>
+    </div>
+
+    {{#hasrules}}
+    <div class="table-responsive">
+    <table class="table generaltable vtu-rule-matrix">
+        <thead><tr>
+            <th>{{#str}}rule, videotrackerultra{{/str}}</th>
+            <th>{{#str}}result, videotrackerultra{{/str}}</th>
+            <th>{{#str}}evidence, videotrackerultra{{/str}}</th>
+            <th>{{#str}}policy, videotrackerultra{{/str}}</th>
+        </tr></thead>
+        <tbody>
+        {{#rules}}
+        <tr>
+            <td>{{label}}</td>
+            <td data-result="{{resultkey}}">{{result}}</td>
+            <td>{{evidence}}</td>
+            <td>{{policy}}</td>
+        </tr>
+        {{/rules}}
+        </tbody>
+    </table>
+    </div>
+    {{/hasrules}}
+</div>

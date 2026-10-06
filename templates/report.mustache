@@ -1,0 +1,37 @@
+{{#hasrows}}
+<div class="table-responsive">
+<table class="table generaltable">
+    <thead>
+        <tr>
+            <th>{{#str}}student, videotrackerultra{{/str}}</th>
+            <th>{{#str}}percentage, videotrackerultra{{/str}}</th>
+            <th>{{#str}}realtime, videotrackerultra{{/str}}</th>
+            <th>{{#str}}status, videotrackerultra{{/str}}</th>
+            <th>{{#str}}rulesmet, videotrackerultra{{/str}}</th>
+            <th>{{#str}}rulespending, videotrackerultra{{/str}}</th>
+            <th>{{#str}}violations, videotrackerultra{{/str}}</th>
+            <th>{{#str}}lastattempt, videotrackerultra{{/str}}</th>
+            <th>{{#str}}sessions, videotrackerultra{{/str}}</th>
+        </tr>
+    </thead>
+    <tbody>
+    {{#rows}}
+        <tr>
+            <td><a href="{{{url}}}">{{name}}</a><br><small class="text-muted">{{email}}</small></td>
+            <td>{{percent}}%</td>
+            <td>{{realtime}}</td>
+            <td>{{status}}</td>
+            <td>{{rulesmet}}</td>
+            <td>{{rulespending}}</td>
+            <td>{{violations}}</td>
+            <td>{{lastattempt}}</td>
+            <td>{{sessions}}</td>
+        </tr>
+    {{/rows}}
+    </tbody>
+</table>
+</div>
+{{/hasrows}}
+{{^hasrows}}
+<div class="alert alert-info">{{#str}}reportempty, videotrackerultra{{/str}}</div>
+{{/hasrows}}
