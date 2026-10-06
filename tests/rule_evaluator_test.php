@@ -1,5 +1,18 @@
 <?php
-// This file is part of Moodle - http://moodle.org/.
+// This file is part of Moodle - http://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace mod_videotrackerultra;
 
@@ -11,6 +24,8 @@ use mod_videotrackerultra\rule\evaluator;
  *
  * @package   mod_videotrackerultra
  * @covers    \mod_videotrackerultra\rule\evaluator
+ * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 final class rule_evaluator_test extends advanced_testcase {
     /**
@@ -97,6 +112,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assertSame($expected, $matches[0]['result']);
     }
 
+    /**
+     * Method test_minimum_percentage_rule.
+     *
+     * @return void Return value.
+     */
     public function test_minimum_percentage_rule(): void {
         $a = $this->activity();
         $a->minpercent = 90;
@@ -105,6 +125,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'percent', evaluator::RESULT_PENDING);
     }
 
+    /**
+     * Method test_minimum_real_playback_time_rule.
+     *
+     * @return void Return value.
+     */
     public function test_minimum_real_playback_time_rule(): void {
         $a = $this->activity();
         $a->minrealtime = 120;
@@ -113,6 +138,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'realtime', evaluator::RESULT_PENDING);
     }
 
+    /**
+     * Method test_maximum_playback_rate_rule.
+     *
+     * @return void Return value.
+     */
     public function test_maximum_playback_rate_rule(): void {
         $a = $this->activity();
         $a->maxplaybackrate = 1.5;
@@ -121,6 +151,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'playbackrate', evaluator::RESULT_FAIL);
     }
 
+    /**
+     * Method test_forward_seek_count_rule.
+     *
+     * @return void Return value.
+     */
     public function test_forward_seek_count_rule(): void {
         $a = $this->activity();
         $a->maxforwardseeks = 1;
@@ -129,6 +164,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'forwardseeks', evaluator::RESULT_FAIL);
     }
 
+    /**
+     * Method test_forward_seek_size_rule.
+     *
+     * @return void Return value.
+     */
     public function test_forward_seek_size_rule(): void {
         $a = $this->activity();
         $a->maxseeksize = 60;
@@ -137,6 +177,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'seeksize', evaluator::RESULT_FAIL);
     }
 
+    /**
+     * Method test_skip_prohibition_rule.
+     *
+     * @return void Return value.
+     */
     public function test_skip_prohibition_rule(): void {
         $a = $this->activity();
         $a->forbidskipping = 1;
@@ -145,6 +190,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'skipping', evaluator::RESULT_FAIL);
     }
 
+    /**
+     * Method test_required_segment_is_independent_from_overall_percentage.
+     *
+     * @return void Return value.
+     */
     public function test_required_segment_is_independent_from_overall_percentage(): void {
         $a = $this->activity();
         $a->minpercent = 90;
@@ -155,6 +205,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'segment:0', evaluator::RESULT_PENDING);
     }
 
+    /**
+     * Method test_beginning_rule.
+     *
+     * @return void Return value.
+     */
     public function test_beginning_rule(): void {
         $a = $this->activity();
         $a->requirestart = 1;
@@ -163,6 +218,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'start', evaluator::RESULT_PENDING);
     }
 
+    /**
+     * Method test_end_rule.
+     *
+     * @return void Return value.
+     */
     public function test_end_rule(): void {
         $a = $this->activity();
         $a->requireend = 1;
@@ -171,6 +231,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'end', evaluator::RESULT_PENDING);
     }
 
+    /**
+     * Method test_continuous_playback_rule.
+     *
+     * @return void Return value.
+     */
     public function test_continuous_playback_rule(): void {
         $a = $this->activity();
         $a->mincontinuous = 60;
@@ -179,6 +244,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'continuous', evaluator::RESULT_PENDING);
     }
 
+    /**
+     * Method test_long_inactivity_rule.
+     *
+     * @return void Return value.
+     */
     public function test_long_inactivity_rule(): void {
         $a = $this->activity();
         $a->inactivitythreshold = 60;
@@ -188,6 +258,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'inactivity', evaluator::RESULT_FAIL);
     }
 
+    /**
+     * Method test_minimum_sessions_rule.
+     *
+     * @return void Return value.
+     */
     public function test_minimum_sessions_rule(): void {
         $a = $this->activity();
         $a->minsessions = 2;
@@ -196,6 +271,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'minsessions', evaluator::RESULT_PENDING);
     }
 
+    /**
+     * Method test_maximum_sessions_rule.
+     *
+     * @return void Return value.
+     */
     public function test_maximum_sessions_rule(): void {
         $a = $this->activity();
         $a->maxsessions = 2;
@@ -204,12 +284,22 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assert_rule($a, $f, 'maxsessions', evaluator::RESULT_FAIL);
     }
 
+    /**
+     * Method test_deadline_rule.
+     *
+     * @return void Return value.
+     */
     public function test_deadline_rule(): void {
         $a = $this->activity();
         $a->deadline = 1000;
         $this->assert_rule($a, $this->facts(), 'deadline', evaluator::RESULT_FAIL, 2000);
     }
 
+    /**
+     * Method test_informational_violation_does_not_block_completion.
+     *
+     * @return void Return value.
+     */
     public function test_informational_violation_does_not_block_completion(): void {
         $a = $this->activity();
         $a->maxplaybackrate = 1.5;
@@ -221,6 +311,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assertCount(1, $result['violations']);
     }
 
+    /**
+     * Method test_rewatch_policy_requests_fresh_viewing_window.
+     *
+     * @return void Return value.
+     */
     public function test_rewatch_policy_requests_fresh_viewing_window(): void {
         $a = $this->activity();
         $a->maxplaybackrate = 1.5;
@@ -232,6 +327,11 @@ final class rule_evaluator_test extends advanced_testcase {
         $this->assertTrue($result['requires_rewatch']);
     }
 
+    /**
+     * Method test_clean_latest_session_recovers_temporary_behaviour_failure.
+     *
+     * @return void Return value.
+     */
     public function test_clean_latest_session_recovers_temporary_behaviour_failure(): void {
         $a = $this->activity();
         $a->maxplaybackrate = 1.5;
