@@ -30,14 +30,25 @@ use stdClass;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class evaluator {
+    /** @var string */
     public const POLICY_INFO = 'info';
+
+    /** @var string */
     public const POLICY_BLOCK = 'block';
+
+    /** @var string */
     public const POLICY_REWATCH = 'rewatch';
 
+    /** @var string */
     public const RESULT_OK = 'ok';
+
+    /** @var string */
     public const RESULT_PENDING = 'pending';
+
+    /** @var string */
     public const RESULT_FAIL = 'fail';
 
+    /** @var float */
     private const START_SECONDS = 5.0;
 
     /**
