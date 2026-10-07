@@ -32,10 +32,10 @@ final class observer {
     /**
      * Recalculates the affected learner when Video Bridge accepts new analytics.
      *
-     * @param analytics_updated $event Bridge analytics event.
+     * @param progress_updated $event Bridge progress event.
      * @return void
      */
-    public static function bridge_analytics_updated(analytics_updated $event): void {
+    public static function bridge_analytics_updated(progress_updated $event): void {
         global $DB;
 
         $data = $event->get_data();
