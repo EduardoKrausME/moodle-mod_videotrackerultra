@@ -25,10 +25,10 @@
 defined('MOODLE_INTERNAL') || die;
 
 $plugin->component = 'mod_videotrackerultra';
-$plugin->version = 2026100601;
-$plugin->release = '1.0.1';
+$plugin->version = 2026100602;
+$plugin->release = '1.0.2';
 $plugin->requires = 2024100700;
 $plugin->maturity = MATURITY_BETA;
 $plugin->dependencies = [
-    'local_video_bridge' => 2026100608,
+    'local_video_bridge' => 2026100618,
 ];
