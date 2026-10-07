@@ -136,7 +136,7 @@ class mod_videotrackerultra_mod_form extends moodleform_mod {
      * @return array
      */
     public function add_completion_rules(): array {
-        $field = 'completionvalid' . $this->get_completion_suffix();
+        $field = 'completionvalid' . $this->get_suffix();
         $this->_form->addElement('advcheckbox', $field, '', get_string('completionvalid', 'videotrackerultra'));
         $this->_form->setDefault($field, 1);
         return [$field];
@@ -149,7 +149,7 @@ class mod_videotrackerultra_mod_form extends moodleform_mod {
      * @return bool
      */
     public function completion_rule_enabled($data): bool {
-        $field = 'completionvalid' . $this->get_completion_suffix();
+        $field = 'completionvalid' . $this->get_suffix();
         return !empty($data[$field]);
     }
 
@@ -161,7 +161,7 @@ class mod_videotrackerultra_mod_form extends moodleform_mod {
      */
     public function data_preprocessing(&$defaultvalues): void {
         if (array_key_exists('completionvalid', $defaultvalues)) {
-            $defaultvalues['completionvalid' . $this->get_completion_suffix()] = $defaultvalues['completionvalid'];
+            $defaultvalues['completionvalid' . $this->get_suffix()] = $defaultvalues['completionvalid'];
         }
         $defaultvalues['requiredsegmentstext'] = segments::to_text($defaultvalues['requiredsegments'] ?? '[]');
 
@@ -187,7 +187,7 @@ class mod_videotrackerultra_mod_form extends moodleform_mod {
             return $data;
         }
 
-        $completionfield = 'completionvalid' . $this->get_completion_suffix();
+        $completionfield = 'completionvalid' . $this->get_suffix();
         if (property_exists($data, $completionfield)) {
             $data->completionvalid = !empty($data->{$completionfield}) ? 1 : 0;
             unset($data->{$completionfield});
@@ -350,7 +350,7 @@ class mod_videotrackerultra_mod_form extends moodleform_mod {
      */
     public function data_postprocessing($data): void {
         parent::data_postprocessing($data);
-        $field = 'completionvalid' . $this->get_completion_suffix();
+        $field = 'completionvalid' . $this->get_suffix();
         if (property_exists($data, $field)) {
             $data->completionvalid = !empty($data->{$field}) ? 1 : 0;
         }
