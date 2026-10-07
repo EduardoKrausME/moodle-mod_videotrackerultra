@@ -18,6 +18,7 @@ namespace mod_videotrackerultra;
 
 use advanced_testcase;
 use local_video_bridge\analytics\manager as analytics_manager;
+use PHPUnit\Framework\Attributes\CoversFunction;
 
 /**
  * Integration coverage for recalculable completion.
@@ -26,7 +27,7 @@ use local_video_bridge\analytics\manager as analytics_manager;
  * @copyright 2026 Eduardo Kraus {@link https://eduardokraus.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-#[CoversClass(\mod_videotrackerultra\completion::class)]
+#[CoversFunction('videotrackerultra_get_completion_state')]
 final class completion_test extends advanced_testcase {
     /**
      * Completion changes when underlying Video Bridge facts change.
