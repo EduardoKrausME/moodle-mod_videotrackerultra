@@ -4,6 +4,12 @@ Video Tracker Ultra is a Moodle activity that validates whether observable video
 
 It is deliberately different from a generic analytics report. The central question is not only “how much was watched?”, but “does the server-side evidence satisfy the rules configured for this activity?”.
 
+## Requirements and installation
+
+**Required dependency:** [Moodle Video Bridge (`local_video_bridge`)](https://github.com/EduardoKrausME/moodle-local_video_bridge), version `2026100618` or later. The Video Bridge plugin is not bundled with this activity; install it in `local/video_bridge` before installing or upgrading `mod_videotrackerultra`.
+
+Video Bridge requires Moodle 4.5 or later and currently also depends on `local_ai_bridge`. Install its dependencies and complete the upgrade through **Site administration > Notifications**. An installation limited to plugins available on the Moodle Marketplace must ensure that these required plugins are available there; the activity cannot run without Video Bridge.
+
 ## Shared video infrastructure
 
 The activity requires [Moodle Video Bridge](https://github.com/EduardoKrausME/moodle-local_video_bridge).
