@@ -69,7 +69,7 @@ Rules are checked against capabilities declared by the selected Video Bridge sou
 
 No provider-specific workaround is implemented by this module.
 
-## What this proves — and what it does not
+## What this proves - and what it does not
 
 Video Tracker Ultra distinguishes four concepts:
 
